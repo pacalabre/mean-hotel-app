@@ -1,0 +1,29 @@
+[{
+	"_id": {
+		"$oid": "576b2c1063bccc2c0cf62f71"
+	},
+	"name": "Express",
+	"role": "Web App Server"
+},
+{
+	"_id": {
+		"$oid": "576b2c1063bccc2c0cf62f72"
+	},
+	"name": "Angular",
+	"role": "Make App Awesome"
+},
+{
+	"_id": {
+		"$oid": "576b2c1063bccc2c0cf62f73"
+	},
+	"name": "node",
+	"role": "platform"
+},
+{
+	"_id": {
+		"$oid": "576b2c8663bccc2c0cf62f74"
+	},
+	"name": "Mongo",
+	"role": "database"
+}]
+

@@ -1,8 +1,13 @@
+var dbconn = require('../data/dbconnection.js');
 var hotelData = require('../data/hotel-data.json');
 
 module.exports.hotelsGetAll = function(req, res) {
    console.log("GET the JSON");
    console.log(req.query);
+
+   var db = dbconn.get();
+
+   console.log("db", db);
 
    var offset = 0;
    var count = 5;
@@ -16,6 +21,7 @@ module.exports.hotelsGetAll = function(req, res) {
    }
 
    var returnData = hotelData.slice(offset,offset+count);
+
    res
     .status(200)
     .json(returnData);
