@@ -24,5 +24,6 @@ router
   .route('/hotels/:hotelId/reviews/:reviewId')
   .get(ctrlReviews.reviewsGetOne)
   .put(ctrlReviews.reviewsUpdateOne)
+  .delete(ctrlReviews.reviewsDeleteOne);
 
 module.exports = router;

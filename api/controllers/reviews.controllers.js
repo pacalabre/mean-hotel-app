@@ -147,6 +147,49 @@ var hotelId = req.params.hotelId;
 }
 
 module.exports.reviewsDeleteOne = function(req, res) {
+  var hotelId = req.params.hotelId;
+  var reviewId = req.params.reviewId;
 
+  Hotel
+    .findById(hotelId)
+    .select("reviews")
+    .exec(function(err, doc){
+      var response = {
+        status : 200,
+        message : doc
+      };
+      if(err) {
+      console.log("error finding hotel");
+      response.status = 500;
+      response.message = err;
+    } else if(!doc){
+        response.status = 404;
+        response.message = ({
+          "message" : "Hotel ID not found."
+        });
+    }
+    if(response.status !== 200) {
+      res
+        .status(response.status)
+        .json(response.message);
+    }
+
+      else {
+        doc.reviews.id(reviewId).remove();
+        doc.save(function(err, reviewUpdated){
+          if(err) {
+            res
+              .status(500)
+              .json(err);
+          } else {
+            res
+              .status(204)
+              .json();
+          }
+      });
+    }
+
+
+  });
 }
 
