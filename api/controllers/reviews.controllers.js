@@ -126,23 +126,10 @@ var hotelId = req.params.hotelId;
         .status(response.status)
         .json(response.message);
     } else {
-      doc.name = req.body.name;
-      doc.description = req.body.description;
-      doc.stars = parseInt(req.body.stars, 10);
-      doc.services = _splitArray(req.body.services);
-      doc.photos =  _splitArray(req.body.photos);
-      doc.currency = req.body.currency;
       doc.reviews = {
         name : req.body.name,
         rating: parseInt(req.body.rating),
         review: req.body.review
-      }
-      doc.location = {
-        address : req.body.address,
-        coordinates : [
-          parseFloat(req.body.lng),
-          parseFloat(req.body.lat)
-        ]
       };
       doc.save(function(err, reviewUpdated){
         if(err) {
@@ -158,3 +145,8 @@ var hotelId = req.params.hotelId;
     }
   });
 }
+
+module.exports.reviewsDeleteOne = function(req, res) {
+
+}
+
