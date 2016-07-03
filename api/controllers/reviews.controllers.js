@@ -188,8 +188,6 @@ module.exports.reviewsDeleteOne = function(req, res) {
           }
       });
     }
-
-
   });
 }
 
