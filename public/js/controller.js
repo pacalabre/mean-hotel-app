@@ -1,11 +1,19 @@
-angular.module('myApp').controller('MyController', MyController).controller('AboutController', AboutController);
+// angular.module('myApp').controller('MainController', MainController).controller('FilmController', FilmController);
 
-function MyController() {
-  var vm = this;
-  vm.name = "Paul";
-}
+// function MainController($http) {
+//   var vm = this;
+//   vm.name = "Paul";
 
-function AboutController() {
-  var vm = this;
-  vm.about = 'This is my bio';
-}
+//   $http.get('http://swapi-tpiros.rhcloud.com/films').then(function(response) {
+//     vm.films = response.data;
+//   });
+// }
+
+// function FilmController($http,$routeParams) {
+//   var vm = this;
+//   var id = $routeParams.id;
+//   $http.get('http://swapi-tpiros.rhcloud.com/films/'+id).then(function(response){
+//     vm.films = response.data;
+//     console.log(vm.films);
+//   })
+// }
