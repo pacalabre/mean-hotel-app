@@ -7,7 +7,7 @@ function hotelDataFactory($http) {
   };
 
   function hotelList() {
-    return $http.get('/api/hotels').then(complete).catch(failed);
+    return $http.get('/api/hotels?count=10').then(complete).catch(failed);
   }
 
   function hotelDisplay(id) {
