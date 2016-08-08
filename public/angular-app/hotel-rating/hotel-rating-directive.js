@@ -8,7 +8,7 @@ function hotelRating() {
     controller: 'HotelController',
     controllerAs: 'vm',
     scope : {
-      stars: ""
+      stars: '@'
     }
   }
 }
