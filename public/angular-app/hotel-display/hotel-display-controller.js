@@ -8,8 +8,25 @@ function HotelController($routeParams,hotelDataFactory) {
     vm.stars = _getStarRating(response.data.stars);
   })
 
-
   function _getStarRating(stars) {
     return new Array(stars);
   }
+
+  vm.addReview = function() {
+    var postData = {
+      name: vm.name,
+      rating: vm.rating,
+      review: vm.review
+    }
+    if(vm.myForm.$valid) {
+      hotelDataFactory.postReview(id, postData).then(function(){
+        //
+      }).catch(function(error){
+        console.log(error);
+      })
+    } else {
+      vm.isSubmitted = true;
+    }
+  }
+
 }

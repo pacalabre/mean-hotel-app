@@ -1,3 +1,17 @@
 <h1>Info on {{ vm.hotel.name }} </h1>
   <hotel-rating stars="vm.stars"></hotel-rating> </h3>
 <p>{{ vm.hotel.description }}</p>
+<p>{{vm.hotel.reviews}}</p>
+
+<form name="vm.myForm" ng-submit="vm.addReview()">
+  Name:<input type="text" name="name" required ng-model="vm.name">
+  <div ng-show="myForm.name.$pristine">
+    <p>This field is required</p>
+  </div>
+  Rating: <input type="text" name="rating" required ng-pattern="/^[1-5]$/" ng-model="vm.rating">
+  Your Review <textarea name="review" required ng-model="vm.review"></textarea>
+  <div ng-show="vm.reviewForm.review.$dirty && vm.isSubmitted">
+    <p>Please add a Review</p>
+  </div>
+  <button type="submit" class="btn">Add Review</button>
+</form>
