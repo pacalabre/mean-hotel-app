@@ -19,8 +19,10 @@ function HotelController($routeParams,hotelDataFactory) {
       review: vm.review
     }
     if(vm.myForm.$valid) {
-      hotelDataFactory.postReview(id, postData).then(function(){
-        //
+      hotelDataFactory.postReview(id, postData).then(function(response){
+        if(response.status === 200) {
+          $route.reload();
+        }
       }).catch(function(error){
         console.log(error);
       })
